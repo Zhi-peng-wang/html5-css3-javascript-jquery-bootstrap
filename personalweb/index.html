@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<title>王志鹏的个人空间</title>
+		<script type="text/javascript" src="bs/js/jquery-3.3.1.min.js" ></script>
+		<script type="text/javascript" src="bs/js/bootstrap.js" ></script>
+		<script type="text/javascript" src="bs/js/video.js" ></script>
+		<link rel="stylesheet" href="bs/css/bootstrap.css" />
+		<link rel="stylesheet" href="bs/css/video-js.css" />
+		<script type="text/javascript">
+			$(function(){
+				//俩侧图片显示，模拟广告
+				$(window).scroll(function(){
+					//1.1获取网页的位移的偏移量
+					var offset=$('html').scrollTop();
+					//1.2判断网页是否滚动到了指定位置
+					if(offset>500){
+						//1.3显示
+						console.log(offset)
+						$(".lctp img").show(500);
+					}else if(offset<500){
+						//1.4隐藏
+						console.log(offset)
+						$(".lctp img").hide(500);
+					}
+				});
+				
+//				导航条事件
+				$('.nav .navbar-nav li').mouseenter(function(){
+					$(this).addClass('active');
+					$(".nav .navbar-nav li").not($(this)).removeClass("active");
+				});
+				$('.search').click(function(){
+					var search_txt = $('.txt').val();
+					if(search_txt==""){
+						alert("小哥哥&小姐姐，查询内容不能为空哦！");
+						$(".search").focus();
+//						防止冒泡事件
+						return false;
+					}else{
+						alert("暂无相关信息，详情详询管理员！")
+						防止冒泡事件
+						return false;
+					}
+				});
+//				显示与隐藏功能实现
+				$(".mulu").mouseover(function(){
+					if($(".xianshi").is(':hidden')){   
+						$(".xianshi").stop().show(1000);		
+					}
+				});
+				$(".mulu").hover(null,function(){
+					$(".xianshi").stop().hide(1000);		
+				});	
+				
+//				幻灯片效果
+				$('.carousel-caption').hide();
+				$('.item').hover(
+					function(){
+						$(this).find('.carousel-caption').slideDown();
+					},
+					function(){
+						$(this).find('.carousel-caption').slideUp();
+					}
+				);
+				
+//				右下角的效果
+				$("span").click(function(){
+					$(".right_bottom").remove();
+				});
+				$(".right_bottom").stop().fadeIn(2000);
+			});
+		</script>
+		<style>
+			body{
+				padding-top: 70px;
+			}
+			.carousel-caption{
+				background-color: #000000;
+				opacity: 0.7;
+				width: 100%;
+				position: absolute;
+				bottom: 0px!important;
+				left: 0px!important;
+				height: 80px;
+			}
+			.carousel-caption p{
+				padding-top: 10px;
+			}
+			.carousel-caption h3{
+				margin: 0;
+			}
+			.left_bian{
+				float: left;
+				position: fixed;
+				left: 0;
+				top: 250px;
+			}
+			.right_bian{
+				float: right;
+				position: fixed;
+				right: 0;
+				top: 250px;
+			}
+			.lctp img{
+				display: none;
+			}
+			.right_bottom{
+				position: fixed;
+				bottom: 0;
+				right: 5px;
+				display: none;
+			}
+			.right_bottom span{
+				position: absolute;
+				bottom: 175px;
+				right: 5px;
+			}
+		</style>
+	</head>
+	<body style="height: 1800px;">
+		<div class="container">
+			<!--导航条-->
+			<nav class="nav navbar-inverse navbar-fixed-top">
+				<div class="container">
+					<!--头部-->
+					<div class="navbar-header">
+						<a class="navbar-brand">
+							<img src="img/login.jpg" height="150%"/>
+						</a>
+						<button class="navbar-toggle collapsed" data-toggle = "collapse" data-target = "#mynavbar">
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
+					</div>
+					<!--缩起来的部分-->
+					<div id="mynavbar" class="collapse navbar-collapse">
+						<ul class="nav navbar-nav" style="padding-left: 30px;">
+							<li class="active" style="padding-left: 30px;"><a href="index.html">个人空间</a></li>
+							<li style="padding-left: 40px;"><a href="Personal_introduction.html">个人介绍</a></li>
+							<li style="padding-left: 40px;"><a href="Career.html">职业生涯</a></li>
+							<li style="padding-left: 40px;"><a href="Thinking.html">所思所想</a></li>
+						</ul>
+						
+						<p class="nav navbar-text navbar-right">欢迎光临王志鹏个人空间！！！</p>
+						<form class="navbar-form navbar-right " style="padding-right: 50px;">
+								<input type="text" class="form-control txt" placeholder="请输入您要查询的内容！" />
+								<button class="btn btn-warning search"><span class="glyphicon glyphicon-search"></span></button>
+						</form>			
+					</div>
+				</div>
+			</nav>
+			<!--视频区域-->
+			<div class="row">
+				<div class="col-md-12">
+					<div class="panel panel-warning">
+						<div class="panel-heading"><h3>你知道中国人有多拼吗?（共勉）</h3></div>
+					</div>
+					<div class="panel-body">
+						<video id="my_video_1" class="video-js vjs-default-skin" poster="./img/video.png" controls    preload="auto"width="1110"height="600"poster="video-js/my_video_poster.png"    data-setup="{}">
+				        	<source src="video/中国人的生活 “你知道中国人有多拼吗 ”-_超清.mp4" > 
+				        </video>
+					</div>
+					<div class="panel-footer"></div>
+				</div>
+			</div>
+			<!--个人信息及经历区域-->
+			<div class="row">
+				<!--主体的左部分-->
+				<div class="body-left col-md-2">
+					<div class="panel panel-info">
+					    <div class="panel-heading"><h6>个人资料</h6></div>
+						<table class="table">
+							<tbody>
+								<tr>
+									<td colspan="2">
+										<img src="img/login.jpg" width="" />
+									</td>
+								</tr>
+								<tr>
+									<td colspan="2" align="center">王志鹏</td>
+								</tr>
+								<tr>
+									<td>
+										<button class="btn btn-warning">加好友</button>
+									</td>
+									<td>
+										<button class="btn btn-info">发信息</button>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<button class="btn btn-info">写留言</button>
+									</td>
+									<td>
+										<button class="btn btn-info">加关注</button>
+									</td>
+								</tr>
+								<tr>
+									<td colspan="2"><small>个人信息目录</small></td>
+								</tr>
+								<tr>
+									<td colspan="2">
+										<div class="mulu" >
+											<span class="glyphicon glyphicon-list" style="font-size: 25px; color: skyblue;"></span>
+										</div>
+										<div class="xianshi" style="display: none;">
+											<ul class="list-group list-unstyled">
+												<li><a class="list-group-item list-group-item-warning">姓名：<br />王志鹏</a></li>
+												<li><a class="list-group-item list-group-item-warning">系别：<br />物联网与软件学院</a></li>
+												<li><a class="list-group-item list-group-item-warning">班级：<br />软件1703班</a></li>
+												<li><a class="list-group-item list-group-item-warning">班主任：<br />陈薇</a></li>
+												<li><a class="list-group-item list-group-item-warning">指导老师：<br />陈晓男</a></li>
+												<li><a class="list-group-item list-group-item-warning">联系方式：<br />17605272162</a></li>
+											</ul>
+										</div>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						<div class="panel-footer"></div>
+					</div>
+				</div>
+				<!--主体的右部分-->
+				<div class="body-right col-md-10">
+					<div class="panel panel-primary">
+						<div class="panel-heading ">
+							<h6>部分经历</h6>
+						</div>
+						<div class="panel-body">
+							<div class="carousel slide" id="mycarousel" data-ride = "carousel">
+								<!--描述：幻灯片图片-->
+								<div class="carousel-inner">
+									<div class="item active">
+										<img src="img/a.jpg" />
+											<!--描述：图片文字-->
+							            <div class="carousel-caption">
+							            	<h3>第一次来到无锡</h3>
+							            	<p>来无锡求学，三年之后为社会做贡献！</p>
+							            </div>
+									</div>
+									<div class="item ">
+										<img src="img/b.jpg" />
+										<!--描述：图片文字-->
+							            <div class="carousel-caption">
+							            	<h3>第一次参加校团体活动</h3>
+							            	<p>“不忘初心跟党走，青春建功时代”  主题团日活动</p>
+							            </div>
+									</div>
+									<div class="item ">
+										<img src="img/c.jpg" />
+										<!--描述：图片文字-->
+							            <div class="carousel-caption">
+							            	<h3>在校陪同学过生日</h3>
+							            	<p>与同学友好相处！</p>
+							            </div>
+									</div>
+								</div>
+								
+					            <!--描述：左右控制-->
+					            <a class="left carousel-control" href="#mycarousel"data-slide="prev">
+								    <span class="glyphicon glyphicon-chevron-left"></span>
+								    <span class="sr-only">Previous</span>
+								</a>
+								<a class="right carousel-control" href="#mycarousel"data-slide="next">
+								    <span class="glyphicon glyphicon-chevron-right"></span>
+								    <span class="sr-only">Next</span>
+								</a>
+							</div>
+						</div>
+						
+						<div class="panel-footer">
+							
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			
+			
+			<!--俩侧图片的展示-->
+			<div class="lctp">
+				<img src="img/l_b.jpg" width="120px" height="288px" class="left_bian"/>
+				<img src="img/r_a.jpg" width="120px" height="288px" class="right_bian"/>
+			</div>
+			
+			<!--右下角功能-->
+			<div class="right_bottom">
+				<img src="img/youxiajiao.jpg" width="300px" height="194px"/>
+				<span>&times;</span>
+			</div>
+		</div>
+	</body>
+</html>

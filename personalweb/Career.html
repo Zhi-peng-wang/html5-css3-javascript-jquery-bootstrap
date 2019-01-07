@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<title>Career</title>
+		<script type="text/javascript" src="bs/js/jquery-3.3.1.min.js" ></script>
+		<script type="text/javascript" src="bs/js/bootstrap.js" ></script>
+		<link rel="stylesheet" href="bs/css/bootstrap.css" />
+		<style type="text/css">
+			body{
+				padding-top: 30px;
+			}
+		</style>
+		<script type="text/javascript">
+			$(function(){
+				$('.nav .navbar-nav li').mouseenter(function(){
+					$(this).addClass('active');
+					$(".nav .navbar-nav li").not($(this)).removeClass("active");
+				});
+				
+				$('.search').click(function(){
+					var search_txt = $('.txt').val();
+					if(search_txt==""){
+						alert("小哥哥&小姐姐，查询内容不能为空哦！");
+						$(".search").focus();
+//						防止冒泡事件
+						return false;
+					}else{
+						alert("暂无相关信息，详情详询管理员！");
+//						防止冒泡事件
+						return false;
+					}
+				});
+//				显示与隐藏功能实现
+				$(".mulu").mouseover(function(){
+					if($(".xianshi").is(':hidden')){   
+						$(".xianshi").stop().show(1000);		
+					}
+				});
+				$(".mulu").hover(null,function(){
+					$(".xianshi").stop().hide(1000);		
+				});	
+//				职业的显示
+				$('.body_panel').hide().first().show();
+				
+				$('.title_panel').click(function(){
+					$(this).parent().next().slideDown();
+					$('.body_panel').not($(this).parent().next()).slideUp(600);
+					$(".wenzhang").stop().hide(1000);		
+				});
+				
+//				职业内容的控制
+				
+				$('.gcs').click(function(){
+					if($(".wenzhang").is(':hidden')){   
+						$(".wenzhang").stop().show(1000);		
+					}
+				})
+			});
+		</script>
+	</head>
+	<body style="height: 1800px;">
+		<div class="container">
+			<h1 class="page-header">职业生涯</h1>
+			<!--导航条-->
+			<nav class="nav navbar-inverse navbar-fixed-top">
+				<div class="container">
+					<!--头部-->
+					<div class="navbar-header">
+						<a class="navbar-brand">
+							<img src="img/login.jpg" height="150%"/>
+						</a>
+						<button class="navbar-toggle collapsed" data-toggle = "collapse" data-target = "#mynavbar">
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
+					</div>
+					<!--缩起来的部分-->
+					<div id="mynavbar" class="collapse navbar-collapse">
+						<ul class="nav navbar-nav" style="padding-left: 30px;">
+							<li  style="padding-left: 30px;"><a href="index.html">个人空间</a></li>
+							<li  style="padding-left: 40px;"><a href="Personal_introduction.html">个人介绍</a></li>
+							<li class="active" style="padding-left: 40px;"><a href="Career.html">职业生涯</a></li>
+							<li style="padding-left: 40px;"><a href="Thinking.html">所思所想</a></li>
+						</ul>
+						
+						<p class="nav navbar-text navbar-right">欢迎光临王志鹏个人空间！！！</p>
+						<form class="navbar-form navbar-right " style="padding-right: 50px;">
+								<input type="text" class="form-control txt" placeholder="请输入您要查询的内容！" />
+								<button class="btn btn-warning search"><span class="glyphicon glyphicon-search"></span></button>
+						</form>
+					</div>
+				</div>
+			</nav>
+			<div class="row">
+				<!--主体的左部分-->
+				<div class="body-left col-md-2">
+					<div class="panel panel-info">
+					    <div class="panel-heading"><h6>个人资料</h6></div>
+						<table class="table">
+							<tbody>
+								<tr>
+									<td colspan="2">
+										<img src="img/login.jpg" width="" />
+									</td>
+								</tr>
+								<tr>
+									<td colspan="2" align="center">王志鹏</td>
+								</tr>
+								<tr>
+									<td>
+										<button class="btn btn-warning">加好友</button>
+									</td>
+									<td>
+										<button class="btn btn-info">发信息</button>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<button class="btn btn-info">写留言</button>
+									</td>
+									<td>
+										<button class="btn btn-info">加关注</button>
+									</td>
+								</tr>
+								<tr>
+									<td colspan="2"><small>个人信息目录</small></td>
+								</tr>
+								<tr>
+									<td colspan="2">
+										<div class="mulu" >
+											<span class="glyphicon glyphicon-list" style="font-size: 25px; color: skyblue;"></span>
+										</div>
+										<div class="xianshi" style="display: none;">
+											<ul class="list-group list-unstyled">
+												<li><a class="list-group-item list-group-item-warning">姓名：<br />王志鹏</a></li>
+												<li><a class="list-group-item list-group-item-warning">系别：<br />物联网与软件学院</a></li>
+												<li><a class="list-group-item list-group-item-warning">班级：<br />软件1703班</a></li>
+												<li><a class="list-group-item list-group-item-warning">班主任：<br />陈薇</a></li>
+												<li><a class="list-group-item list-group-item-warning">指导老师：<br />陈晓男</a></li>
+												<li><a class="list-group-item list-group-item-warning">联系方式：<br />17605272162</a></li>
+											</ul>
+										</div>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						<div class="panel-footer"></div>
+					</div>
+				</div>
+				<!--主体的右部分-->
+				<div class="body-right col-md-10">
+					<div class="panel panel-primary">
+						<div class="panel-heading ">
+							<h6>职业生涯</h6>
+						</div>
+						<div class="panel-body">
+							<div class="panel-group">
+								<div class="panel panel-info">
+									<div class="panel-heading">
+									<div class="panel-title title_panel">
+										<a href="javascript:">前端开发工程师</a>
+									</div>
+										
+									</div>
+									<div class="panel-body body_panel">
+										<div class="row">
+											<div class="col-md-4">
+												<img src="img/qianduan.jpg" width="293px" height="172px"/>
+											</div>
+											<div class="col-md-8">
+												<table class="table table-striped table-bordered text-center" >
+													<tr>
+														<td style="text-align: center;vertical-align: middle!important;">职业名称：</td>
+														<td><button class="btn btn-warning gcs">前端开发工程师</button></td>
+													</tr>
+													<tr>
+														<td style="text-align: center;vertical-align: middle!important;">职业特点：</td>
+														<td>
+															1.未来趋势<br />
+															2.移植性强<br />
+															3.就业市场广<br />
+															4.使命感 荣誉感<br />
+															5.技术含量高,对外人有门槛,逻辑性的乐趣.
+														</td>
+													</tr>
+												</table>
+											</div>
+										</div>
+										<div class="row wenzhang" style="display: none;">
+											<p class="lead">
+												&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;前端开发工程师是一个很新的职业，在国内乃至国际上真正开始受到重视的时间是从2005年开始的，是指Web前端开发工程师的简称。 Web前端开发是从美工演变而来的，名称上有很明显的时代特征。在互联网的演化进程中，Web 1.0时代，网站的主要内容都是静态的，用户使用网站的行为也以浏览为主。如2005年以后，互联网进入Web 2.0时代，各种类似桌面软件的Web应用大量涌现，网站的前端由此发生了翻天覆地的变化网页不再只是承载单一的文字和图片，各种富媒体让网页的内容更加生动，网页上软件化的交互形式为用户提供了更好的使用体验，这些都是基于前端技术实现的。目前web前端工程师的年薪待遇平均在10万以上，高级HTML前端工程师年薪达30—50万，很多企业对于与web前端相关的技术职位更是求贤若渴。<br />
+												&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;前端工程师，也叫Web前端开发工程师。他是随着web发展，细分出来的行业。Web前端开发技术主要包括三个要素：HTML、CSS和JavaScript!HTML甚至不是一门语言，仅仅是简单的标记语言!CSS只是无类型的样式修饰语言。当然可以勉强算作弱类型语言。Javascript的基础部分相对来说不难，入手还算快。<br />
+												&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;前端开发的入门门槛很低，与服务器端语言先慢后快的学习曲线相比，前端开发的学习曲线是先快后慢。也正因为如此，前端开发领域有很多自学成“才”的同行，但大多数人都停留在会用的阶段，因为后面的学习曲线越来越陡峭，每前进一步都很难。人们常说：不想当裁缝的司机，不是个好厨师。如果单纯只是学习前端编程语言、而不懂后端编程语言(PHP、ASP.NET，JSP、Python)，也不能算作是优秀的前端工程师。在成为一个优秀的前端工程师的道路上，充满了汗水和辛劳。<br />
+											</p>
+										</div>
+									</div>
+								</div>
+								<div class="panel panel-info">
+									<div class="panel-heading">
+										<div class="panel-title title_panel">
+											<a href="javascript:">java后端开发工程师</a>
+										</div>
+									</div>
+									<div class="panel-body body_panel">
+										<div class="row">
+											<div class="col-md-4">
+												<img src="img/houtai.jpg" width="293px" height="172px"/>
+											</div>
+											<div class="col-md-8">
+												<table class="table table-striped table-bordered text-center" >
+													<tr>
+														<td style="text-align: center;vertical-align: middle!important;">职业名称：</td>
+														<td><button class="btn btn-warning gcs">java后端开发工程师</button></td>
+													</tr>
+													<tr>
+														<td style="text-align: center;vertical-align: middle!important;">职业特点：</td>
+														<td>
+															1.熟悉Java<br />
+															2.熟悉servlet<br />
+															3.熟悉JSP<br />
+															4.熟悉EJB<br />
+															5.熟练使用eclipse，idea等开发工具
+														</td>
+													</tr>
+												</table>
+											</div>
+										</div>
+										<div class="row wenzhang" style="display: none;">
+											<p class="lead">
+												&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Java的应用可以说是无处不在，从桌面办公应用到网络数据库等应用，从PC到嵌入式移动平台，从Java小应用程序（Applet）到架构庞大的J2EE企业级解决方案，处处都有Java的身影，就连美国大型太空项目当中，也使用了Java来开发控制系统和相关软件。用途如此之广的Java造就了Java工程师的辉煌，使其在软件工程师的领域里独占鳌头！Java软件工程师运用Java这个开发工具去完成软件产品的软件程序设计、开发、测试、维护升级等工作。<br />
+												&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;随着Internet的迅速发展，Web应用日益广泛，Java语言也得到了迅速发展。1994年，Gosling用Java开发了一个实时性较高、可靠、安全、有交互功能的新型Web浏览器，它不依赖于任何硬件平台和软件平台。这种浏览器名称为HotJava，并于1995年同Java语言一起，正式在业界对外发表，引起了巨大的轰动，Java的地位随之而得到肯定。此后的发展非常迅速。<br />
+												&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Java编程语言的句法与C++的句法相似，语义则与Small Talk TM的语义相似。Java编程语言可被用来创建任何常规编程语言所能创建的应用程序。<br />
+											</p>
+										</div>
+									</div>
+								</div>
+								<div class="panel panel-info">
+									<div class="panel-heading">
+										<div class="panel-title title_panel">
+											<a href="javascript:">Android移动开发工程师</a>
+										</div>
+									</div>
+									<div class="panel-body body_panel">
+										<div class="row">
+											<div class="col-md-4">
+												<img src="img/Android.jpg" width="293px" height="172px"/>
+											</div>
+											<div class="col-md-8">
+												<table class="table table-striped table-bordered text-center" >
+													<tr>
+														<td style="text-align: center;vertical-align: middle!important;">职业名称：</td>
+														<td><button class="btn btn-warning gcs">Android移动开发工程师</button></td>
+													</tr>
+													<tr>
+														<td style="text-align: center;vertical-align: middle!important;">职业特点：</td>
+														<td>
+															1.熟悉Java开发，有丰富的Java项目开发经验<br />
+															2.有嵌入式消费类产品应用程序，UI开发经验者优先<br />
+															3.具有Android开发经验<br />
+															4.熟悉TCP/IP/http通信协议及原理<br />
+															5.熟练Android sdk各版本之间的差异
+														</td>
+													</tr>
+												</table>
+											</div>
+										</div>
+										<div class="row wenzhang" style="display: none;">
+											<p class="lead">
+												&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Android工程师是指从事Android移动应用操作系统、游戏和各种Android平台功能的应用、开发和测试的技术人员。<br />
+												&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;以手机开发为主要对象，包括但不限于手机操作系统、手机游戏、手机其他多种功能的开发和优化人员。Android工程师是移动应用开发者，希望将自己的应用移植到该平台上或者在该平台上开发应用。主要包括：Android应用软件开发工程师、Android游戏程序员、Android网络游戏程序员、Android软件移植工程师、Android嵌入式设备软件开发工程师、Android游戏开发工程师、Android网络游戏开发工程师等。<br />
+											</p>
+										</div>
+									</div>
+								</div>
+							</div>
+							
+						</div>
+						<div class="panel-footer">
+							
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

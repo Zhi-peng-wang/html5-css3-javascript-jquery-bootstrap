@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<title>Personal_introduction</title>
+		<script type="text/javascript" src="bs/js/jquery-3.3.1.min.js" ></script>
+		<script type="text/javascript" src="bs/js/bootstrap.js" ></script>
+		<link rel="stylesheet" href="bs/css/bootstrap.css" />
+		<style type="text/css">
+			body{
+				padding-top: 70px;
+			}
+		</style>
+		<script type="text/javascript">
+			$(function(){
+				$('.nav .navbar-nav li').mouseenter(function(){
+					$(this).addClass('active');
+					$(".nav .navbar-nav li").not($(this)).removeClass("active");
+				});
+				$('.search').click(function(){
+					var search_txt = $('.txt').val();
+					if(search_txt==""){
+						alert("小哥哥&小姐姐，查询内容不能为空哦！");
+						$(".search").focus();
+//						防止冒泡事件
+						return false;
+					}else{
+						alert("暂无相关信息，详情详询管理员！");
+//						防止冒泡事件
+						return false;
+					}
+				});
+				
+//				显示与隐藏功能实现
+				$(".mulu").mouseover(function(){
+					if($(".xianshi").is(':hidden')){   
+						$(".xianshi").stop().show(1000);		
+					}
+				});
+				$(".mulu").hover(null,function(){
+					$(".xianshi").stop().hide(1000);		
+				});	
+//				专业上的隐藏功能实现
+				$(".zy").mouseover(function(){
+					if($(".zy_info").is(':hidden')){   
+						$(".zy_info").stop().show(500);		
+					}
+				});
+				$(".zy").hover(null,function(){
+					$(".zy_info").stop().hide(500);		
+				});	
+//				查看爱好功能实现,此处不采用链接数据库,采用固定值进行判断
+				$('.hobby').click(function(){
+					$('#mymodal').modal('show')
+				});
+				$('.save').click(function(){
+					//隐藏
+					$('#mymodal').modal('hide')
+				});
+				//登陆操作
+				$('.denglu').click(function(){
+					var username = $('.username').val();
+					var userpassword = $('.userpassword').val();
+					if(username==""){
+						alert("用户不能为空！");
+						$(".username").focus();
+//						防止冒泡事件
+						return false;
+					}
+					if(username=="admin"&&userpassword=="admin"){
+						$('#mymodal').modal('hide')
+						$('.hb').show(1000)
+					}else{
+						alert("密码错误请重新输入")
+						$(".username").focus();
+//						防止冒泡事件
+						return false;
+					}
+				});
+				
+			});
+		</script>
+	</head>
+	<body style="height: 1200px;">
+		<div class="container">
+			<nav class="nav navbar-inverse navbar-fixed-top">
+				<div class="container">
+					<!--头部-->
+					<div class="navbar-header">
+						<a class="navbar-brand">
+							<img src="img/login.jpg" height="150%"/>
+						</a>
+						<button class="navbar-toggle collapsed" data-toggle = "collapse" data-target = "#mynavbar">
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
+					</div>
+					<!--缩起来的部分-->
+					<div id="mynavbar" class="collapse navbar-collapse">
+						<ul class="nav navbar-nav" style="padding-left: 30px;">
+							<li  style="padding-left: 30px;"><a href="index.html">个人空间</a></li>
+							<li class="active" style="padding-left: 40px;"><a href="Personal_introduction.html">个人介绍</a></li>
+							<li style="padding-left: 40px;"><a href="Career.html">职业生涯</a></li>
+							<li style="padding-left: 40px;"><a href="Thinking.html">所思所想</a></li>
+						</ul>
+						
+						<p class="nav navbar-text navbar-right">欢迎光临王志鹏个人空间！！！</p>
+						<form class="navbar-form navbar-right " style="padding-right: 50px;">
+								<input type="text" class="form-control txt" placeholder="请输入您要查询的内容！" />
+								<button class="btn btn-warning search"><span class="glyphicon glyphicon-search"></span></button>
+						</form>
+						
+					</div>
+				</div>
+			</nav>
+			<div class="row">
+				<!--主体的左部分-->
+				<div class="body-left col-md-2">
+					<div class="panel panel-info">
+					    <div class="panel-heading"><h6>个人资料</h6></div>
+						<table class="table">
+							<tbody>
+								<tr>
+									<td colspan="2">
+										<img src="img/login.jpg" width="" />
+									</td>
+								</tr>
+								<tr>
+									<td colspan="2" align="center">王志鹏</td>
+								</tr>
+								<tr>
+									<td>
+										<button class="btn btn-warning">加好友</button>
+									</td>
+									<td>
+										<button class="btn btn-info">发信息</button>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<button class="btn btn-info">写留言</button>
+									</td>
+									<td>
+										<button class="btn btn-info">加关注</button>
+									</td>
+								</tr>
+								<tr>
+									<td colspan="2"><small>个人信息目录</small></td>
+								</tr>
+								<tr>
+									<td colspan="2">
+										<div class="mulu" >
+											<span class="glyphicon glyphicon-list" style="font-size: 25px; color: skyblue;"></span>
+										</div>
+										<div class="xianshi" style="display: none;">
+											<ul class="list-group list-unstyled">
+												<li><a class="list-group-item list-group-item-warning">姓名：<br />王志鹏</a></li>
+												<li><a class="list-group-item list-group-item-warning">系别：<br />物联网与软件学院</a></li>
+												<li><a class="list-group-item list-group-item-warning">班级：<br />软件1703班</a></li>
+												<li><a class="list-group-item list-group-item-warning">班主任：<br />陈薇</a></li>
+												<li><a class="list-group-item list-group-item-warning">指导老师：<br />陈晓男</a></li>
+												<li><a class="list-group-item list-group-item-warning">联系方式：<br />17605272162</a></li>
+											</ul>
+										</div>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						<div class="panel-footer"></div>
+					</div>
+				</div>
+				<!--主体的右部分-->
+				<div class="body-right col-md-10">
+					<div class="panel panel-primary">
+						<div class="panel-heading ">
+							<h6>个人详细介绍</h6>
+						</div>
+						<div class="panel-body row">
+							<div class="panel-left col-md-4" style="padding-left: 50px;">
+								<img src="img/personal_pic.jpg" width="333px" height="612px"/>
+							</div>
+							<div class="panel-right col-md-6 col-md-offset-1" style="padding-left: 60px;">
+								<table class="table table-striped table-bordered table-hover text-center">
+									<tr class="success">
+										<th colspan="2" class="text-center">个人信息</th>
+									</tr>
+									<tr>
+										<td>班级：</td>
+										<td>软件1703班</td>
+									</tr>
+									<tr>
+										<td>姓名：</td>
+										<td>王志鹏</td>
+									</tr>
+									<tr>
+										<td>性别：</td>
+										<td>男</td>
+									</tr>
+									<tr>
+										<td>学号：</td>
+										<td>100170334</td>
+									</tr>
+									<tr>
+										<td style="text-align: center;vertical-align: middle!important;">所学专业：</td>
+										<td>
+											<button class="btn btn-sm btn-info zy">滑动查看</button>
+											<dl style="display: none;" class="zy_info">
+												<dd>jquery开发基础教程</dd>
+												<dd>python基础</dd>
+												<dd>jsp程序设计</dd>
+												<dd>Makeblock机器人</dd>
+												<dd>UML系统设计与分析</dd>
+											</dl>
+										</td>
+									</tr>
+									<tr>
+										<td>院系：</td>
+										<td>物联网与软件技术学院</td>
+									</tr>
+									<tr>
+										<td>生日：</td>
+										<td>1998-01-09</td>
+									</tr>
+									<tr>
+										<td>星座：</td>
+										<td>摩羯座</td>
+									</tr>
+									<tr>
+										<td>QQ：</td>
+										<td>742349899</td>
+									</tr>
+									<tr>
+										<td style="text-align: center;vertical-align: middle!important;">爱好：</td>
+										<td>
+											<button class="btn btn-sm btn-warning hobby">点击查看</button>
+											<form class="form-group form-horizontal hb" style="display: none;">
+												<div class="form-group ">
+													<label class="control-label">爱好:</label>
+													<label class=" control-label">写代码</label>
+												</div>
+											</form>
+											<div id="mymodal" class="modal fade">
+												<div class="modal-dialog">
+													<div class="modal-content">
+														<div class="modal-header">
+															<div class="close" data-dismiss = "modal">&times;</div>
+															<h2>请先登陆</h2>
+														</div>
+														<div class="modal-body">
+															<form class="form-group form-horizontal">
+																<div class="form-group ">
+																	<label class="col-md-2 control-label">用户:</label>
+																	<div class="col-md-10">
+																		<input type="text"  class="form-control username" placeholder="name"/>
+																	</div>
+																</div>
+																<div class="form-group">
+																	<label class="col-md-2 control-label">密码:</label>
+																	<div class="col-md-10">
+																		<input type="password"  class="form-control userpassword"placeholder="password"/>
+																	</div>
+																</div>
+																<div class="form-group">
+																	<div class="col-md-offset-2 col-md-10" >
+																		<input type="button" value="登陆" class="btn btn-primary denglu" />
+																		<input type="reset" value="重置" class="btn btn-warning" />
+																	</div>
+																</div>
+															</form>
+														</div>
+														<div class="modal-footer">
+															<button class="btn btn-default" data-dismiss = "modal">close</button>
+														</div>
+													</div>
+												</div>
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<td>联系方式：</td>
+										<td>17605272162</td>
+									</tr>
+									<tr>
+										<td>家乡：</td>
+										<td>江苏宿迁</td>
+									</tr>
+									<tr>
+										<td>目前所在地方：</td>
+										<td>江苏无锡</td>
+									</tr>
+									<tr>
+										<td>班主任：</td>
+										<td>陈薇</td>
+									</tr>
+									<tr>
+										<td>指导老师：</td>
+										<td>陈晓男</td>
+									</tr>
+								</table>
+							</div>
+							
+						</div>
+						<div class="panel-footer">
+							
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
